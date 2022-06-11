@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://WebService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://WebService" xmlns:intf="http://WebService" xmlns:tns1="http://Bean" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://WebService" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://Bean"/>
+   <element name="searchByCharacter">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCharacterResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCharacterReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="getAllSchoolInfo">
+    <complexType/>
+   </element>
+   <element name="getAllSchoolInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllSchoolInfoReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByProvince">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByProvinceResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByProvinceReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBytype">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBytypeResponse">
+    <complexType>
+     <sequence>
+      <element name="searchBytypeReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByName">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByNameReturn" type="tns1:School"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://Bean" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://WebService"/>
+   <complexType name="School">
+    <sequence>
+     <element name="character" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="province" nillable="true" type="xsd:string"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+     <element name="type211" nillable="true" type="xsd:string"/>
+     <element name="type985" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="searchByCharacterRequest">
+
+      <wsdl:part element="impl:searchByCharacter" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByProvinceRequest">
+
+      <wsdl:part element="impl:searchByProvince" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllSchoolInfoRequest">
+
+      <wsdl:part element="impl:getAllSchoolInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNameResponse">
+
+      <wsdl:part element="impl:searchByNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllSchoolInfoResponse">
+
+      <wsdl:part element="impl:getAllSchoolInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByProvinceResponse">
+
+      <wsdl:part element="impl:searchByProvinceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBytypeRequest">
+
+      <wsdl:part element="impl:searchBytype" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNameRequest">
+
+      <wsdl:part element="impl:searchByName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBytypeResponse">
+
+      <wsdl:part element="impl:searchBytypeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCharacterResponse">
+
+      <wsdl:part element="impl:searchByCharacterResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SearchUniversity">
+
+      <wsdl:operation name="searchByCharacter">
+
+         <wsdl:input message="impl:searchByCharacterRequest" name="searchByCharacterRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByCharacterResponse" name="searchByCharacterResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllSchoolInfo">
+
+         <wsdl:input message="impl:getAllSchoolInfoRequest" name="getAllSchoolInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllSchoolInfoResponse" name="getAllSchoolInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByProvince">
+
+         <wsdl:input message="impl:searchByProvinceRequest" name="searchByProvinceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByProvinceResponse" name="searchByProvinceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBytype">
+
+         <wsdl:input message="impl:searchBytypeRequest" name="searchBytypeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchBytypeResponse" name="searchBytypeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByName">
+
+         <wsdl:input message="impl:searchByNameRequest" name="searchByNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchByNameResponse" name="searchByNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SearchUniversitySoapBinding" type="impl:SearchUniversity">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="searchByCharacter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCharacterRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCharacterResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllSchoolInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllSchoolInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllSchoolInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByProvince">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByProvinceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByProvinceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBytype">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchBytypeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchBytypeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SearchUniversityService">
+
+      <wsdl:port binding="impl:SearchUniversitySoapBinding" name="SearchUniversity">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServiceDB/services/SearchUniversity"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

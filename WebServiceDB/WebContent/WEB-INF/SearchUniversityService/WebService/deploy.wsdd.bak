@@ -1,0 +1,135 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SearchUniversityService WSDL service -->
+
+  <service name="SearchUniversity" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://WebService"/>
+      <parameter name="wsdlServiceElement" value="SearchUniversityService"/>
+      <parameter name="schemaQualified" value="http://Bean,http://WebService"/>
+      <parameter name="wsdlServicePort" value="SearchUniversity"/>
+      <parameter name="className" value="WebService.SearchUniversitySoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SearchUniversity"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="searchByCharacter" qname="operNS:searchByCharacter" xmlns:operNS="http://WebService" returnQName="retNS:searchByCharacterReturn" xmlns:retNS="http://WebService" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://WebService" returnItemQName="tns:item" xmlns:tns="http://WebService" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="http://WebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAllSchoolInfo" qname="operNS:getAllSchoolInfo" xmlns:operNS="http://WebService" returnQName="retNS:getAllSchoolInfoReturn" xmlns:retNS="http://WebService" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://WebService" returnItemQName="tns:item" xmlns:tns="http://WebService" soapAction="" >
+      </operation>
+      <operation name="searchByProvince" qname="operNS:searchByProvince" xmlns:operNS="http://WebService" returnQName="retNS:searchByProvinceReturn" xmlns:retNS="http://WebService" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://WebService" returnItemQName="tns:item" xmlns:tns="http://WebService" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="http://WebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchBytype" qname="operNS:searchBytype" xmlns:operNS="http://WebService" returnQName="retNS:searchBytypeReturn" xmlns:retNS="http://WebService" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://WebService" returnItemQName="tns:item" xmlns:tns="http://WebService" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="http://WebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchByName" qname="operNS:searchByName" xmlns:operNS="http://WebService" returnQName="retNS:searchByNameReturn" xmlns:retNS="http://WebService" returnType="rtns:School" xmlns:rtns="http://Bean" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://WebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="searchByProvince searchByName getAllSchoolInfo searchBytype searchByCharacter"/>
+
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchBytypeResponse"
+        type="java:WebService.SearchBytypeResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://WebService"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchByProvinceResponse"
+        type="java:WebService.SearchByProvinceResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchByCharacter"
+        type="java:WebService.SearchByCharacter"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>getAllSchoolInfo"
+        type="java:WebService.GetAllSchoolInfo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchByCharacterResponse"
+        type="java:WebService.SearchByCharacterResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchByNameResponse"
+        type="java:WebService.SearchByNameResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchBytype"
+        type="java:WebService.SearchBytype"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://Bean"
+        qname="ns:School"
+        type="java:Bean.School"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchByProvince"
+        type="java:WebService.SearchByProvince"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>searchByName"
+        type="java:WebService.SearchByName"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://WebService"
+        qname="ns:>getAllSchoolInfoResponse"
+        type="java:WebService.GetAllSchoolInfoResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,27 @@
+#gallary{
+	float: left;
+	justify-content: center;
+	width: inherit;
+	height: auto;
+}
+#gallary img{
+	width: 200px;
+	height:auto;
+	margin-bottom:10px ;
+	cursor: pointer;
+}
+
+#gallary img:hover{
+	transform: scale(1.05);
+	border: ridge;
+}
+
+.clear{
+	clear:both;
+}
+
+
+.body{
+	    width: 80%;
+    margin: 0 auto;
+}
